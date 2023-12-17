@@ -35,9 +35,18 @@ void add_node_rear(node_link *old_header, int new_value) {
 }
 
 void remove_nth_item(node_link * old_header, int n) {
+    if (n < 1) {
+        fprintf(stderr, "index %d is not a valid value\n", n);
+        return;
+    }
     node_link *temp_list = old_header;
-    for (int i = 1; i < n-1; i++) {
-        temp_list = temp_list->next;
+    for (int i = 1; i < n; i++) {
+        if (temp_list->next) {
+            temp_list = temp_list->next;
+        } else {
+            fprintf(stderr, "There is no element at position %d to remove.\n", n);
+            return;
+        }
     }
     node_link *buffer = temp_list->next;
     temp_list->next = buffer->next;

@@ -11,6 +11,6 @@ int main() {
     print_list(head);
     add_node_rear(head, 1);
     print_list(head);
-    remove_nth_item(head, 2);
+    remove_nth_item(head, 1);
     print_list(head);
 }
